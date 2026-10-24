@@ -10,4 +10,4 @@ GitHub Pages:
 5. Choose main and /(root), then Save.
 6. Wait a few minutes for the published site URL to appear.
 
-Only email is shown as contact: thalurikeerthi@gmail.com. No phone number is included.
+
