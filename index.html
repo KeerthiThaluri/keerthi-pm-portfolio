@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keerthi V T | Product Management Portfolio</title>
+<meta name="description" content="Product management portfolio with independent case studies across EdTech, HealthTech, FinTech, food delivery, entertainment, mobility, e-commerce, and sustainability.">
+<style>
+:root{--ink:#17212b;--muted:#5d6b78;--line:#dce4e9;--bg:#f5f7f8;--paper:#fff;--accent:#285e61;--soft:#e8f2f1;--dark:#132d32}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}header{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line)}.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{font-weight:850;letter-spacing:.04em}nav a{text-decoration:none;color:var(--muted);margin-left:18px;font-size:.93rem}
+.hero{padding:76px 0 62px;background:linear-gradient(135deg,#eef5f4 0%,#f5f7f8 62%,#eaf0f5 100%);border-bottom:1px solid var(--line)}.eyebrow{text-transform:uppercase;letter-spacing:.15em;font-size:.78rem;font-weight:800;color:var(--accent)}h1{font-size:clamp(2.5rem,6vw,4.6rem);letter-spacing:-.055em;line-height:1.03;max-width:850px;margin:15px 0 20px}.hero p{max-width:730px;font-size:1.13rem;color:var(--muted)}.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}.pill{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 11px;font-size:.83rem;color:#33434b}
+main section{padding:48px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:22px}h2{font-size:1.8rem;letter-spacing:-.035em;margin:0}.section-head p{margin:5px 0 0;color:var(--muted)}.count{font-size:.86rem;color:var(--muted);white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}.case-card{background:var(--paper);border:1px solid var(--line);border-radius:17px;padding:23px;display:flex;flex-direction:column;min-height:330px;box-shadow:0 3px 10px rgba(20,40,50,.025)}.card-top{display:flex;justify-content:space-between;align-items:center;gap:10px}.domain{font-size:.78rem;font-weight:800;color:var(--accent);background:var(--soft);border-radius:999px;padding:4px 9px}.number{font-size:.75rem;color:#87939c;letter-spacing:.08em;font-weight:750}h3{font-size:1.22rem;line-height:1.25;letter-spacing:-.02em;margin:17px 0 6px}.subtitle{font-weight:650;color:#3f505a!important;margin:0 0 10px!important}.case-card p{font-size:.93rem;color:var(--muted);margin:0 0 12px}.metric-label{font-size:.72rem;letter-spacing:.1em;font-weight:800;color:#7b878e;margin-top:auto}.metrics{font-size:.88rem!important;color:var(--ink)!important;margin:4px 0 14px!important}.read{font-weight:750;color:var(--accent);text-decoration:none;border-top:1px solid var(--line);padding-top:12px;display:flex;justify-content:space-between}.read:hover{text-decoration:underline}
+.approach{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}.step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}.step b{display:block;margin-bottom:5px}.step p{font-size:.9rem;color:var(--muted);margin:0}.notice{background:var(--soft);border-left:4px solid var(--accent);padding:17px 19px;border-radius:0 10px 10px 0;color:#254b4c}.contact{background:var(--dark);color:#fff;border-radius:18px;padding:28px;display:flex;justify-content:space-between;align-items:center;gap:20px}.contact p{color:#d1dfdf;margin:6px 0 0}.contact a{color:white;font-weight:700}footer{padding:28px 0 40px;color:var(--muted);font-size:.88rem;border-top:1px solid var(--line)}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.approach{grid-template-columns:repeat(2,minmax(0,1fr))}.section-head{align-items:start;flex-direction:column}.nav{align-items:flex-start;flex-direction:column;padding-top:16px;padding-bottom:16px}nav a{margin:0 13px 0 0}.hero{padding:54px 0 42px}.contact{align-items:flex-start;flex-direction:column}}
+@media(max-width:430px){.approach{grid-template-columns:1fr}}
+</style>
+
+<style>
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+.case-detail{display:none;max-width:900px;margin:50px auto;padding:32px;border:1px solid #dce7e5;border-radius:22px;background:#fff}
+.case-detail:target{display:block}
+.case-detail:target~.site-footer{display:block}
+.case-detail h2{font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.15}
+.case-detail h3{margin-top:28px;font-size:1.2rem}
+.case-detail p,.case-detail li{line-height:1.75;color:#344b4a}
+.case-detail li{margin:7px 0}
+.case-top{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:20px}
+.eyebrow{font-size:.82rem;font-weight:700;letter-spacing:.04em;color:#167b72}
+.back{color:#167b72;font-weight:700;text-decoration:none}
+.disclaimer{margin-top:28px;padding:14px;background:#f0f7f5;border-radius:12px;font-size:.9rem}
+body:has(.case-detail:target) .hero,body:has(.case-detail:target) #work,body:has(.case-detail:target) #approach{display:none}
+body:has(.case-detail:target) .case-detail:target{display:block}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><div class="brand">KEERTHI V T <span style="color:#8a999f;font-weight:500">/ PRODUCT</span></div><nav><a href="#work">Case Studies</a><a href="#approach">Approach</a><a href="#contact">Contact</a></nav></div></header>
+<div class="hero"><div class="wrap"><div class="eyebrow">Product Management Portfolio</div><h1>Curious about people.<br>Serious about problems.</h1><p>I'm Keerthi. I come from a software background, and I’m curious about why people use a product, where they get stuck, and what we can change to make things easier. I’m learning product management by working through real-world-style problems and being clear about what I know versus what I still need to validate.</p><div class="pills"><span class="pill">Product Discovery</span><span class="pill">PRDs & User Journeys</span><span class="pill">Analytics & Experimentation</span><span class="pill">Technical Execution</span></div></div></div>
+<main><div class="wrap">
+<section id="work"><div class="section-head"><div><h2>Selected product case studies</h2><p>Eight different domains, because product problems don’t all look the same.</p></div><div class="count">08 INDEPENDENT CONCEPTS</div></div>
+<div class="grid">
+    <article class="case-card">
+      <div class="card-top"><span class="domain">EdTech</span><span class="number">CASE 01</span></div>
+      <h3>Helping learners build a consistent study habit</h3>
+      <p class="subtitle">Learning streaks and re-engagement</p>
+      <p>Learners may start a course with strong intent but struggle to return regularly when lessons feel long or progress is hard to see.</p>
+      <div class="metric-label">METRICS TO EXPLORE</div>
+      <p class="metrics">Primary candidate: first-week lesson completion rate.</p>
+      <a class="read" href="#case-edtech-learning-streaks">Read case study <span>↗</span></a>
+    </article>
+    
+    <article class="case-card">
+      <div class="card-top"><span class="domain">HealthTech</span><span class="number">CASE 02</span></div>
+      <h3>Reducing friction in appointment booking</h3>
+      <p class="subtitle">Appointment discovery and booking completion</p>
+      <p>Patients may abandon booking when availability, preparation instructions, or appointment details are unclear.</p>
+      <div class="metric-label">METRICS TO EXPLORE</div>
+      <p class="metrics">Primary candidate: booking completion rate.</p>
+      <a class="read" href="#case-healthcare-appointment-access">Read case study <span>↗</span></a>
+    </article>
+    
+    <article class="case-card">
+      <div class="card-top"><span class="domain">FinTech</span><span class="number">CASE 03</span></div>
+      <h3>Making spending insights easier to act on</h3>
+      <p class="subtitle">Personal finance overview and budget nudges</p>
+      <p>Users may see transaction totals but still struggle to understand spending patterns or decide what action to take.</p>
+      <div class="metric-label">METRICS TO EXPLORE</div>
+      <p class="metrics">Primary candidate: weekly insight engagement followed by a meaningful action (e.g., review or edit a budget).</p>
+      <a class="read" href="#case-fintech-spending-insights">Read case study <span>↗</span></a>
+    </article>
+    
+    <article class="case-card">
+      <div class="card-top"><span class="domain">Food & Delivery</span><span class="number">CASE 04</span></div>
+      <h3>Making repeat meal ordering faster</h3>
+      <p class="subtitle">Reorder, dietary preferences, and checkout friction</p>
+      <p>Returning customers may need to repeat the same search and customisation steps even when they already know what they want.</p>
+      <div class="metric-label">METRICS TO EXPLORE</div>
+      <p class="metrics">Primary candidate: reorder-to-checkout conversion.</p>
+      <a class="read" href="#case-food-delivery-reorder">Read case study <span>↗</span></a>
+    </article>
+    
+    <article class="case-card">
+      <div class="card-top"><span class="domain">Entertainment</span><span class="number">CASE 05</span></div>
+      <h3>Helping viewers find something worth watching</h3>
+      <p class="subtitle">Content discovery and time-to-play</p>
+      <p>Viewers may browse for a long time without finding content that fits their mood, available time, language, or viewing context.</p>
+      <div class="metric-label">METRICS TO EXPLORE</div>
+      <p class="metrics">Primary candidate: successful content start within a defined session window.</p>
+      <a class="read" href="#case-entertainment-content-discovery">Read case study <span>↗</span></a>
+    </article>
+    
+    <article class="case-card">
+      <div class="card-top"><span class="domain">Mobility</span><span class="number">CASE 06</span></div>
+      <h3>Reducing uncertainty between booking and pickup</h3>
+      <p class="subtitle">Pickup clarity and trip-start confidence</p>
+      <p>Riders and drivers may struggle to find each other when pickup instructions are vague or location pins do not reflect the real meeting point.</p>
+      <div class="metric-label">METRICS TO EXPLORE</div>
+      <p class="metrics">Primary candidate: median time from driver arrival to trip start.</p>
+      <a class="read" href="#case-mobility-pickup-confidence">Read case study <span>↗</span></a>
+    </article>
+    
+    <article class="case-card">
+      <div class="card-top"><span class="domain">E-commerce</span><span class="number">CASE 07</span></div>
+      <h3>Helping shoppers compare products with confidence</h3>
+      <p class="subtitle">Product detail clarity and comparison</p>
+      <p>Shoppers may switch between product pages to compare specifications, total price, delivery, and return conditions.</p>
+      <div class="metric-label">METRICS TO EXPLORE</div>
+      <p class="metrics">Primary candidate: comparison-to-purchase conversion.</p>
+      <a class="read" href="#case-ecommerce-product-comparison">Read case study <span>↗</span></a>
+    </article>
+    
+    <article class="case-card">
+      <div class="card-top"><span class="domain">Climate & Sustainability</span><span class="number">CASE 08</span></div>
+      <h3>Making surplus-food discovery more dependable</h3>
+      <p class="subtitle">Local surplus offers and collection reliability</p>
+      <p>People interested in low-cost surplus food may hesitate if offer details, pickup windows, or item availability are uncertain.</p>
+      <div class="metric-label">METRICS TO EXPLORE</div>
+      <p class="metrics">Primary candidate: reservation-to-collection completion rate.</p>
+      <a class="read" href="#case-sustainability-food-waste">Read case study <span>↗</span></a>
+    </article>
+    </div></section>
+<section id="approach"><div class="section-head"><div><h2>How I think through a product problem</h2><p>I like to start with the person using the product, get clear on the problem, and then work out what would actually count as improvement.</p></div></div>
+<div class="approach">
+<div class="step"><b>01 · Discover</b><p>Define the user, context, pain point, and what evidence is still missing.</p></div>
+<div class="step"><b>02 · Define</b><p>Frame a testable problem and clarify desired outcomes and non-goals.</p></div>
+<div class="step"><b>03 · Prioritise</b><p>Compare ideas by impact, effort, feasibility, risks, and user trust.</p></div>
+<div class="step"><b>04 · Measure</b><p>Define primary metrics, guardrails, event tracking, and an honest learning plan.</p></div>
+</div></section>
+<section><div class="notice"><strong>Transparency note:</strong> These are independent portfolio concepts, not products I have launched for employers. The hypotheses, metrics, and experiment plans are proposals, not validated findings. No user research, A/B test outcomes, business impact, or domain partnerships are claimed unless explicitly added later with evidence.</div></section>
+<section id="contact"><div class="contact"><div><h2>Let's talk product.</h2><p>Always happy to talk about products, user behaviour, and ideas that make everyday things less frustrating.</p></div><div><strong>Keerthi V T</strong><br><a href="mailto:thalurikeerthi@gmail.com">thalurikeerthi@gmail.com</a><br> Bengaluru, India</div></div></section>
+</div></main>
+<footer><div class="wrap">© Keerthi V T · Product Management Portfolio</div></footer>
+
+    <section class="case-detail" id="case-edtech-learning-streaks">
+      <div class="case-top"><span class="eyebrow">EdTech · Independent case study</span><a class="back" href="#work">← All case studies</a></div>
+      <h2>Helping learners build a consistent study habit</h2>
+<p><strong>Domain:</strong> EdTech</p>
+<p><strong>Project type:</strong> Independent product case study</p>
+<p><strong>Status:</strong> Independent concept; hypotheses and proposed metrics are not validated with learners.</p>
+<h3>1. Problem framing</h3>
+<p>Learners may start a course with strong intent but struggle to return regularly when lessons feel long or progress is hard to see.</p>
+<h3>2. Target users</h3>
+<p>Self-paced learners balancing study with work, college, and family commitments.</p>
+<h3>3. Hypotheses to validate</h3>
+<ul>
+<li>If learners can choose a small daily learning goal, more will complete a first lesson and return the next day.</li>
+<li>If reminders are based on a learner&#x27;s chosen study window, lesson completion may improve without increasing notification opt-outs.</li>
+</ul>
+<h3>4. Proposed product direction</h3>
+<ul>
+<li>Offer a learner-selected daily goal (for example, 5, 10, or 15 minutes).</li>
+<li>Show a clear next lesson and progress indicator on the home screen.</li>
+<li>Let learners choose reminder timing and pause reminders easily.</li>
+</ul>
+<h3>5. Measurement plan</h3>
+<ul>
+<li>Primary candidate: first-week lesson completion rate.</li>
+<li>Secondary: time to first lesson, lessons completed per active learner, D1/D7 retention.</li>
+<li>Guardrails: reminder opt-out rate, course abandonment, accessibility issues.</li>
+</ul>
+<h3>6. Experiment approach</h3>
+<p>Test a progress-led home screen against the current experience. Predefine eligible users, a minimum detectable effect, sample size, duration, and guardrails before launch.</p>
+<h3>7. Risks and guardrails</h3>
+<p>Streak mechanics can create pressure or reward time spent over learning quality. Keep goals flexible and avoid punitive streak loss.</p>
+<h3>8. What remains to be done</h3>
+<ul>
+<li>Validate the problem with user research or trustworthy secondary research.</li>
+<li>Sketch the current and proposed journey.</li>
+<li>Define event properties and data-quality checks.</li>
+<li>Confirm baseline metrics and experiment eligibility before proposing sample size.</li>
+<li>Record findings honestly; do not invent results.</li>
+</ul>
+      <p class="disclaimer">This is an independent product-thinking exercise. The problem framing, proposed solutions, and metrics are hypotheses; no user research or live experiments are claimed.</p>
+    </section>
+
+    <section class="case-detail" id="case-healthcare-appointment-access">
+      <div class="case-top"><span class="eyebrow">HealthTech · Independent case study</span><a class="back" href="#work">← All case studies</a></div>
+      <h2>Reducing friction in appointment booking</h2>
+<p><strong>Domain:</strong> HealthTech</p>
+<p><strong>Project type:</strong> Independent product case study</p>
+<p><strong>Status:</strong> Independent concept; no patient research or live experiment has been conducted.</p>
+<h3>1. Problem framing</h3>
+<p>Patients may abandon booking when availability, preparation instructions, or appointment details are unclear.</p>
+<h3>2. Target users</h3>
+<p>People trying to find an appropriate appointment while balancing urgency, location, timing, and cost.</p>
+<h3>3. Hypotheses to validate</h3>
+<ul>
+<li>Showing available slots earlier may reduce search effort.</li>
+<li>A clear booking summary and preparation checklist may reduce uncertainty before confirmation.</li>
+</ul>
+<h3>4. Proposed product direction</h3>
+<ul>
+<li>Let users filter by date, location, specialty, and appointment type.</li>
+<li>Show total cost and cancellation rules before confirmation when available.</li>
+<li>Provide a concise booking summary and preparation checklist.</li>
+</ul>
+<h3>5. Measurement plan</h3>
+<ul>
+<li>Primary candidate: booking completion rate.</li>
+<li>Secondary: time to book, search-to-slot-selection rate, reschedule completion.</li>
+<li>Guardrails: booking errors, cancellations, accessibility, privacy and consent issues.</li>
+</ul>
+<h3>6. Experiment approach</h3>
+<p>Compare the existing booking flow with a version that exposes availability earlier. Segment results by device and appointment type only where sample sizes support interpretation.</p>
+<h3>7. Risks and guardrails</h3>
+<p>Health data is sensitive. Avoid unnecessary data collection, provide accessible flows, and never imply clinical triage or medical advice from a booking optimisation.</p>
+<h3>8. What remains to be done</h3>
+<ul>
+<li>Validate the problem with user research or trustworthy secondary research.</li>
+<li>Sketch the current and proposed journey.</li>
+<li>Define event properties and data-quality checks.</li>
+<li>Confirm baseline metrics and experiment eligibility before proposing sample size.</li>
+<li>Record findings honestly; do not invent results.</li>
+</ul>
+      <p class="disclaimer">This is an independent product-thinking exercise. The problem framing, proposed solutions, and metrics are hypotheses; no user research or live experiments are claimed.</p>
+    </section>
+
+    <section class="case-detail" id="case-fintech-spending-insights">
+      <div class="case-top"><span class="eyebrow">FinTech · Independent case study</span><a class="back" href="#work">← All case studies</a></div>
+      <h2>Making spending insights easier to act on</h2>
+<p><strong>Domain:</strong> FinTech</p>
+<p><strong>Project type:</strong> Independent product case study</p>
+<p><strong>Status:</strong> Independent concept; no financial data or user outcomes are claimed.</p>
+<h3>1. Problem framing</h3>
+<p>Users may see transaction totals but still struggle to understand spending patterns or decide what action to take.</p>
+<h3>2. Target users</h3>
+<p>Early-career adults who want a simple overview of spending without complex financial jargon.</p>
+<h3>3. Hypotheses to validate</h3>
+<ul>
+<li>A category-level weekly summary may help users recognise spending patterns faster.</li>
+<li>User-controlled budget alerts may be more useful than generic notifications.</li>
+</ul>
+<h3>4. Proposed product direction</h3>
+<ul>
+<li>Show category totals with plain-language explanations.</li>
+<li>Allow users to set optional budgets and alert thresholds.</li>
+<li>Make transaction categorisation editable and explain estimates or missing data.</li>
+</ul>
+<h3>5. Measurement plan</h3>
+<ul>
+<li>Primary candidate: weekly insight engagement followed by a meaningful action (e.g., review or edit a budget).</li>
+<li>Secondary: categorisation correction rate, budget setup completion, repeat use.</li>
+<li>Guardrails: incorrect categorisation, alert opt-outs, user trust complaints, privacy incidents.</li>
+</ul>
+<h3>6. Experiment approach</h3>
+<p>Test a concise weekly summary against a basic totals view. Do not equate clicks with financial wellbeing; assess whether users understand the information.</p>
+<h3>7. Risks and guardrails</h3>
+<p>Avoid prescriptive investment advice, misleading certainty, or shame-based language. Make data sources and categorisation limitations clear.</p>
+<h3>8. What remains to be done</h3>
+<ul>
+<li>Validate the problem with user research or trustworthy secondary research.</li>
+<li>Sketch the current and proposed journey.</li>
+<li>Define event properties and data-quality checks.</li>
+<li>Confirm baseline metrics and experiment eligibility before proposing sample size.</li>
+<li>Record findings honestly; do not invent results.</li>
+</ul>
+      <p class="disclaimer">This is an independent product-thinking exercise. The problem framing, proposed solutions, and metrics are hypotheses; no user research or live experiments are claimed.</p>
+    </section>
+
+    <section class="case-detail" id="case-food-delivery-reorder">
+      <div class="case-top"><span class="eyebrow">Food &amp; Delivery · Independent case study</span><a class="back" href="#work">← All case studies</a></div>
+      <h2>Making repeat meal ordering faster</h2>
+<p><strong>Domain:</strong> Food &amp; Delivery</p>
+<p><strong>Project type:</strong> Independent product case study</p>
+<p><strong>Status:</strong> Independent concept; proposed improvements require validation with real order data.</p>
+<h3>1. Problem framing</h3>
+<p>Returning customers may need to repeat the same search and customisation steps even when they already know what they want.</p>
+<h3>2. Target users</h3>
+<p>Frequent food-delivery customers who reorder familiar meals but still need control over availability and customisation.</p>
+<h3>3. Hypotheses to validate</h3>
+<ul>
+<li>A reliable reorder entry point may reduce time from app open to checkout.</li>
+<li>Remembered preferences may reduce repeated effort if they are visible and editable.</li>
+</ul>
+<h3>4. Proposed product direction</h3>
+<ul>
+<li>Add a recent-order shortcut with current availability and price checks.</li>
+<li>Show saved customisations before adding an item to cart.</li>
+<li>Keep substitutions, delivery fees, and estimated delivery time clear before payment.</li>
+</ul>
+<h3>5. Measurement plan</h3>
+<ul>
+<li>Primary candidate: reorder-to-checkout conversion.</li>
+<li>Secondary: time to checkout, reorder usage, repeat purchase frequency.</li>
+<li>Guardrails: order edits/cancellations, wrong-item reports, refund rate, dietary preference errors.</li>
+</ul>
+<h3>6. Experiment approach</h3>
+<p>Compare a recent-order shortcut with the current discovery path for eligible repeat users; ensure price and availability are refreshed.</p>
+<h3>7. Risks and guardrails</h3>
+<p>Saved dietary preferences must not be treated as guarantees against allergens. Always show current item details and allow edits.</p>
+<h3>8. What remains to be done</h3>
+<ul>
+<li>Validate the problem with user research or trustworthy secondary research.</li>
+<li>Sketch the current and proposed journey.</li>
+<li>Define event properties and data-quality checks.</li>
+<li>Confirm baseline metrics and experiment eligibility before proposing sample size.</li>
+<li>Record findings honestly; do not invent results.</li>
+</ul>
+      <p class="disclaimer">This is an independent product-thinking exercise. The problem framing, proposed solutions, and metrics are hypotheses; no user research or live experiments are claimed.</p>
+    </section>
+
+    <section class="case-detail" id="case-entertainment-content-discovery">
+      <div class="case-top"><span class="eyebrow">Entertainment · Independent case study</span><a class="back" href="#work">← All case studies</a></div>
+      <h2>Helping viewers find something worth watching</h2>
+<p><strong>Domain:</strong> Entertainment</p>
+<p><strong>Project type:</strong> Independent product case study</p>
+<p><strong>Status:</strong> Independent concept; no platform data or experiment results are claimed.</p>
+<h3>1. Problem framing</h3>
+<p>Viewers may browse for a long time without finding content that fits their mood, available time, language, or viewing context.</p>
+<h3>2. Target users</h3>
+<p>Streaming viewers who open an app without a specific title in mind.</p>
+<h3>3. Hypotheses to validate</h3>
+<ul>
+<li>A small set of intent-based discovery prompts may help viewers choose faster.</li>
+<li>Clearer explanations of recommendations may improve confidence without narrowing exploration.</li>
+</ul>
+<h3>4. Proposed product direction</h3>
+<ul>
+<li>Offer optional prompts such as mood, duration, language, and genre.</li>
+<li>Make continue-watching and recently explored categories easy to find.</li>
+<li>Provide a quick way to tune recommendations and reset preferences.</li>
+</ul>
+<h3>5. Measurement plan</h3>
+<ul>
+<li>Primary candidate: successful content start within a defined session window.</li>
+<li>Secondary: time to first play, discovery-to-play conversion, saves/watchlist adds.</li>
+<li>Guardrails: early exits, repetitive recommendations, hides/not-interested actions, accessibility.</li>
+</ul>
+<h3>6. Experiment approach</h3>
+<p>Compare intent-based prompts with the existing home discovery experience. Evaluate success by qualified plays and satisfaction signals, not clicks alone.</p>
+<h3>7. Risks and guardrails</h3>
+<p>Personalisation can create filter bubbles or expose sensitive inferences. Keep controls transparent and user-adjustable.</p>
+<h3>8. What remains to be done</h3>
+<ul>
+<li>Validate the problem with user research or trustworthy secondary research.</li>
+<li>Sketch the current and proposed journey.</li>
+<li>Define event properties and data-quality checks.</li>
+<li>Confirm baseline metrics and experiment eligibility before proposing sample size.</li>
+<li>Record findings honestly; do not invent results.</li>
+</ul>
+      <p class="disclaimer">This is an independent product-thinking exercise. The problem framing, proposed solutions, and metrics are hypotheses; no user research or live experiments are claimed.</p>
+    </section>
+
+    <section class="case-detail" id="case-mobility-pickup-confidence">
+      <div class="case-top"><span class="eyebrow">Mobility · Independent case study</span><a class="back" href="#work">← All case studies</a></div>
+      <h2>Reducing uncertainty between booking and pickup</h2>
+<p><strong>Domain:</strong> Mobility</p>
+<p><strong>Project type:</strong> Independent product case study</p>
+<p><strong>Status:</strong> Independent concept; operational feasibility and user impact are unvalidated.</p>
+<h3>1. Problem framing</h3>
+<p>Riders and drivers may struggle to find each other when pickup instructions are vague or location pins do not reflect the real meeting point.</p>
+<h3>2. Target users</h3>
+<p>Riders and drivers meeting in crowded, multi-exit, or unfamiliar pickup locations.</p>
+<h3>3. Hypotheses to validate</h3>
+<ul>
+<li>More specific pickup guidance may reduce contact attempts and pickup delays.</li>
+<li>A shared landmark description may improve rider-driver coordination.</li>
+</ul>
+<h3>4. Proposed product direction</h3>
+<ul>
+<li>Allow a short, structured pickup note with suggested landmarks.</li>
+<li>Show the same pickup description to rider and driver.</li>
+<li>Provide an easy way to report an inaccessible or unsafe pickup point.</li>
+</ul>
+<h3>5. Measurement plan</h3>
+<ul>
+<li>Primary candidate: median time from driver arrival to trip start.</li>
+<li>Secondary: pickup-related calls/messages, pickup changes, cancellation rate.</li>
+<li>Guardrails: safety reports, wrong-pickup incidents, accessibility, location privacy.</li>
+</ul>
+<h3>6. Experiment approach</h3>
+<p>Pilot in a limited set of pickup contexts and compare pickup outcomes while monitoring safety and cancellation guardrails.</p>
+<h3>7. Risks and guardrails</h3>
+<p>Location data is sensitive. Do not expose unnecessary precise location history; ensure safety reports are handled appropriately.</p>
+<h3>8. What remains to be done</h3>
+<ul>
+<li>Validate the problem with user research or trustworthy secondary research.</li>
+<li>Sketch the current and proposed journey.</li>
+<li>Define event properties and data-quality checks.</li>
+<li>Confirm baseline metrics and experiment eligibility before proposing sample size.</li>
+<li>Record findings honestly; do not invent results.</li>
+</ul>
+      <p class="disclaimer">This is an independent product-thinking exercise. The problem framing, proposed solutions, and metrics are hypotheses; no user research or live experiments are claimed.</p>
+    </section>
+
+    <section class="case-detail" id="case-ecommerce-product-comparison">
+      <div class="case-top"><span class="eyebrow">E-commerce · Independent case study</span><a class="back" href="#work">← All case studies</a></div>
+      <h2>Helping shoppers compare products with confidence</h2>
+<p><strong>Domain:</strong> E-commerce</p>
+<p><strong>Project type:</strong> Independent product case study</p>
+<p><strong>Status:</strong> Independent concept; proposed flow and metrics are not validated against commerce data.</p>
+<h3>1. Problem framing</h3>
+<p>Shoppers may switch between product pages to compare specifications, total price, delivery, and return conditions.</p>
+<h3>2. Target users</h3>
+<p>Considered-purchase shoppers comparing similar products before buying.</p>
+<h3>3. Hypotheses to validate</h3>
+<ul>
+<li>A side-by-side comparison view may reduce repeated navigation.</li>
+<li>Surfacing total cost and return terms consistently may help shoppers make informed decisions.</li>
+</ul>
+<h3>4. Proposed product direction</h3>
+<ul>
+<li>Let shoppers compare a small number of products on key attributes.</li>
+<li>Highlight differences rather than repeating identical specifications.</li>
+<li>Show total price, delivery estimate, warranty, and return terms in a consistent place.</li>
+</ul>
+<h3>5. Measurement plan</h3>
+<ul>
+<li>Primary candidate: comparison-to-purchase conversion.</li>
+<li>Secondary: comparison feature usage, time to decision, product detail revisits.</li>
+<li>Guardrails: returns, cancellations, comparison errors, page performance.</li>
+</ul>
+<h3>6. Experiment approach</h3>
+<p>Test comparison availability on a selected category. Segment by product complexity and ensure attribute data is accurate before rollout.</p>
+<h3>7. Risks and guardrails</h3>
+<p>A comparison table can mislead if product attributes are missing or inconsistent. Show unknown values explicitly and avoid biased ordering.</p>
+<h3>8. What remains to be done</h3>
+<ul>
+<li>Validate the problem with user research or trustworthy secondary research.</li>
+<li>Sketch the current and proposed journey.</li>
+<li>Define event properties and data-quality checks.</li>
+<li>Confirm baseline metrics and experiment eligibility before proposing sample size.</li>
+<li>Record findings honestly; do not invent results.</li>
+</ul>
+      <p class="disclaimer">This is an independent product-thinking exercise. The problem framing, proposed solutions, and metrics are hypotheses; no user research or live experiments are claimed.</p>
+    </section>
+
+    <section class="case-detail" id="case-sustainability-food-waste">
+      <div class="case-top"><span class="eyebrow">Climate &amp; Sustainability · Independent case study</span><a class="back" href="#work">← All case studies</a></div>
+      <h2>Making surplus-food discovery more dependable</h2>
+<p><strong>Domain:</strong> Climate &amp; Sustainability</p>
+<p><strong>Project type:</strong> Independent product case study</p>
+<p><strong>Status:</strong> Independent concept; no provider partnerships, inventory data, or impact claims are implied.</p>
+<h3>1. Problem framing</h3>
+<p>People interested in low-cost surplus food may hesitate if offer details, pickup windows, or item availability are uncertain.</p>
+<h3>2. Target users</h3>
+<p>Local consumers seeking affordable food and participating food providers with surplus inventory.</p>
+<h3>3. Hypotheses to validate</h3>
+<ul>
+<li>Clearer pickup windows and availability status may reduce failed collections.</li>
+<li>A reminder chosen by the user may improve collection completion.</li>
+</ul>
+<h3>4. Proposed product direction</h3>
+<ul>
+<li>Display quantity, collection window, price, and key food information before reservation.</li>
+<li>Provide clear cancellation and no-show policies.</li>
+<li>Let users opt into a single collection reminder.</li>
+</ul>
+<h3>5. Measurement plan</h3>
+<ul>
+<li>Primary candidate: reservation-to-collection completion rate.</li>
+<li>Secondary: offer view-to-reservation conversion, repeat reservations, surplus units collected.</li>
+<li>Guardrails: no-show rate, provider burden, food-safety complaints, reminder opt-outs.</li>
+</ul>
+<h3>6. Experiment approach</h3>
+<p>Pilot with a small provider group and compare collection completion before and after clearer offer details, accounting for provider and time-window differences.</p>
+<h3>7. Risks and guardrails</h3>
+<p>Never imply food safety beyond provider-supplied information. Ensure storage, allergen, expiry, and handling details are presented accurately.</p>
+<h3>8. What remains to be done</h3>
+<ul>
+<li>Validate the problem with user research or trustworthy secondary research.</li>
+<li>Sketch the current and proposed journey.</li>
+<li>Define event properties and data-quality checks.</li>
+<li>Confirm baseline metrics and experiment eligibility before proposing sample size.</li>
+<li>Record findings honestly; do not invent results.</li>
+</ul>
+      <p class="disclaimer">This is an independent product-thinking exercise. The problem framing, proposed solutions, and metrics are hypotheses; no user research or live experiments are claimed.</p>
+    </section>
+</body></html>
